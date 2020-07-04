@@ -4,26 +4,30 @@
 
 const determ = ([[a, b], [c, d]]) => a * d - b * c;
 
-const cramer = ([x1, y1, z1], [x2, y2, z2]) => {
-  const delta = determ([
-    [x1, y1],
-    [x2, y2],
-  ]);
+const delta = ([x1, y1, z1], [x2, y2, z2]) => [
+  [x1, y1],
+  [x2, y2],
+];
 
-  const deltaX = determ([
-    [z1, y1],
-    [z2, y2],
-  ]);
+const deltaX = ([x1, y1, z1], [x2, y2, z2]) => [
+  [z1, y1],
+  [z2, y2],
+];
 
-  const deltaY = determ([
-    [x1, z1],
-    [x2, z2],
-  ]);
+const deltaY = ([x1, y1, z1], [x2, y2, z2]) => [
+  [x1, z1],
+  [x2, z2],
+];
 
-  const x = deltaX / delta;
-  const y = deltaY / delta;
+const cramer = (m1, m2) => {
+  const d = determ(delta(m1, m2));
+  const dX = determ(deltaX(m1, m2));
+  const dY = determ(deltaY(m1, m2));
 
-  return { x, y };
+  return {
+    x: dX / d,
+    y: dY / d,
+  };
 };
 
-export { determ, cramer };
+export { delta, deltaX, deltaY, determ, cramer };

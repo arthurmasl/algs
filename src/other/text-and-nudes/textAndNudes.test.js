@@ -1,4 +1,27 @@
-const { determ, cramer } = require('./textAndNudes');
+const { determ, delta, deltaX, deltaY, cramer } = require('./textAndNudes');
+
+describe('delta', () => {
+  test('delta', () => {
+    expect(delta([5, 3, 19], [3, 1, 9])).toEqual([
+      [5, 3],
+      [3, 1],
+    ]);
+  });
+
+  test('deltaX', () => {
+    expect(deltaX([5, 3, 19], [3, 1, 9])).toEqual([
+      [19, 3],
+      [9, 1],
+    ]);
+  });
+
+  test('deltaY', () => {
+    expect(deltaY([5, 3, 19], [3, 1, 9])).toEqual([
+      [5, 19],
+      [3, 9],
+    ]);
+  });
+});
 
 describe('determ', () => {
   test('[[5, 3], [3, 1]] should be -4', () => {
