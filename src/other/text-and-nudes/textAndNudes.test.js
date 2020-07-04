@@ -33,7 +33,7 @@ describe('text and nudes', () => {
   });
 });
 
-describe('tests', () => {
+describe('results', () => {
   const { x, y } = cramer([5, 3, 19], [3, 1, 9]);
 
   test('per 1 min', () =>

@@ -1,23 +1,23 @@
-// Tony can send 5 textx and 3 nudes in 19 minutes
+// Tony can send 5 texts and 3 nudes in 19 minutes
 // He could also send 3 texts and 1 nude in 9 minutes
 // How long would it take him to send 1 text and 1 nude
 
 const determ = ([[a, b], [c, d]]) => a * d - b * c;
 
-const cramer = (m1, m2) => {
+const cramer = ([x1, y1, z1], [x2, y2, z2]) => {
   const delta = determ([
-    [m1[0], m1[1]],
-    [m2[0], m2[1]],
+    [x1, y1],
+    [x2, y2],
   ]);
 
   const deltaX = determ([
-    [m1[2], m1[1]],
-    [m2[2], m2[1]],
+    [z1, y1],
+    [z2, y2],
   ]);
 
   const deltaY = determ([
-    [m1[0], m1[2]],
-    [m2[0], m2[2]],
+    [x1, z1],
+    [x2, z2],
   ]);
 
   const x = deltaX / delta;
@@ -26,4 +26,4 @@ const cramer = (m1, m2) => {
   return { x, y };
 };
 
-export { determ, cramer, textAndNudes };
+export { determ, cramer };
