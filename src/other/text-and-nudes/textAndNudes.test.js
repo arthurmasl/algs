@@ -1,4 +1,4 @@
-const { determ, cramer, textAndNudes } = require('./textAndNudes');
+const { determ, cramer } = require('./textAndNudes');
 
 describe('determ', () => {
   test('[[5, 3], [3, 1]] should be -4', () => {

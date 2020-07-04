@@ -26,6 +26,4 @@ const cramer = (m1, m2) => {
   return { x, y };
 };
 
-const textAndNudes = (t, n, m) => {};
-
 export { determ, cramer, textAndNudes };
